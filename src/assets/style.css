@@ -1,0 +1,16 @@
+.body {
+  background-color: rgb(173, 169, 169);
+  height: 100vh;
+}
+.input-box {
+  /* background-color: rgb(152, 146, 146); */
+  width: 95%;
+  border: 0;
+}
+.input-box:focus {
+  border: 0;
+  outline: none;
+}
+.input-btn {
+  width: 5%;
+}
