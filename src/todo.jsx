@@ -13,12 +13,6 @@ const Todo = () => {
       alert("Please enter a task")
     }
     else {
-      alltask.map((item) => {
-        if (item.task == task) {
-          alert("Task already exist")
-          return false;
-        }
-      })
 
       let obj = {
         id: Math.floor(Math.random() * 10000),
@@ -28,12 +22,24 @@ const Todo = () => {
       let newRecord = [...alltask, obj]
       setalltask(newRecord);
       console.log(alltask);
-      alert('task added');
+      alert('Add tsak?');
       settask("");
     }
 
   }
 
+  //checking if a task already exist or not?
+  const checkTask = (work) => {
+    alltask.map((t) => {
+      const { task } = t;
+      if (task === work) {
+        alert("this task already exsit");
+      }
+      else {
+        //
+      }
+    })
+  }
   //pending/completed 
   const taskdone = (id) => {
     let updatedtasks = alltask.map((com) => {
@@ -42,15 +48,15 @@ const Todo = () => {
       }
       return com
     })
-    console.log(updatedtasks);
+    // console.log(updatedtasks);
     setalltask(updatedtasks)
   }
+
   // delete task
   const deleteTask = (id) => {
-    alert(id)
+    alert("Delete this Task?")
     let newRecord = alltask.filter((item) => {
       return item.id !== id
-
     })
     console.log(newRecord);
     setalltask(newRecord);
@@ -64,7 +70,7 @@ const Todo = () => {
             <form action="" onSubmit={handlesubmit}>
               <div className="input-group">
                 <input type="text" className="input-box bg-light" placeholder='Enter Your Task' value={task} onChange={(e) => settask(e.target.value)} />
-                <button className='btn btn-secondary input-btn' >ADD</button>
+                <button className='btn btn-secondary input-btn' onClick={() => checkTask(task)}>ADD</button>
               </div>
             </form>
 
